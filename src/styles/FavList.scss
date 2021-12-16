@@ -1,0 +1,11 @@
+@import "./base/variables.scss";
+
+.FavList {
+  color: white;
+  min-height: calc(95vh - 5rem);
+  font-size: $medium-font-size;
+  background-color: $dark-grey;
+  h3 {
+    margin-left: 1rem;
+  }
+}

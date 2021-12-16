@@ -1,0 +1,35 @@
+@import "./base/variables.scss";
+
+.MovieListWrapper {
+  background-color: $light-grey;
+  min-height: calc(38vh - 3rem);
+
+  .MovieListHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .selectionArea {
+    display: flex;
+    align-items: center;
+    h3 {
+      margin-right: 1.5rem;
+      color: white;
+      font-weight: 300;
+    }
+  }
+  span {
+    color: #ff983d;
+  }
+  select {
+    height: 1.8rem;
+    color: #ff983d;
+    background-color: $dark-grey;
+    width: 6rem;
+    margin-right: 2rem;
+  }
+  h2 {
+    margin-left: 2rem;
+    color: white;
+  }
+}

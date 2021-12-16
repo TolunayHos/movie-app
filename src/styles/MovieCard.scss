@@ -1,0 +1,99 @@
+@import "./base/variables.scss";
+
+.MovieCardWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .card {
+    width: 17rem;
+    height: 25rem;
+    background-color: $dark-grey;
+    position: relative;
+    border-radius: 12px;
+    margin-left: 1.7rem;
+    margin-bottom: 2rem;
+    img {
+      position: absolute;
+      height: 19rem;
+      width: 15rem;
+      left: 50%;
+      top: 50%;
+      margin-top: -11.5rem;
+      margin-left: -7.5rem;
+      border-radius: 5px;
+      filter: brightness(100%);
+    }
+
+    h4 {
+      color: white;
+      position: absolute;
+      top: 79%;
+      left: 8%;
+      cursor: pointer;
+    }
+  }
+}
+
+.HoverCardActive {
+  position: absolute;
+
+  height: 19rem;
+  width: 15rem;
+  left: 50%;
+  top: 50%;
+  margin-top: -11.5rem;
+  margin-left: -7.5rem;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  flex-direction: column;
+  color: white;
+  z-index: 2;
+
+  p {
+    opacity: 0;
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    font-weight: 500;
+    font-size: 0.8rem;
+    font-family: $site-font;
+  }
+  button {
+    opacity: 0;
+    color: orange;
+    background-color: transparent;
+    border: 1px solid orange;
+    border-radius: 4px;
+    height: 1.6rem;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+  &:hover {
+    background: rgba(0, 0, 0, 0.7);
+    p,
+    button {
+      opacity: 1;
+      transition: opacity 0.2s ease-in;
+    }
+  }
+}
+
+.HoverCardInactive {
+  display: none;
+}
+
+.BannerImg {
+  h3 {
+    position: absolute;
+    color: orange;
+    z-index: 1;
+    top: 68.3%;
+    left: 73.7%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 0.2rem 0.8rem;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+}
