@@ -1,13 +1,33 @@
 import React, { useState } from "react";
 import "../styles/MovieList.scss";
 import MovieCard from "./MovieCard";
+import { selectDisplay } from "../actions";
 
-const MovieList = () => {
-  const [option, setOption] = useState("");
+import { connect } from "react-redux";
+const MovieList = (props) => {
+  // const [option, setOption] = useState(props.display);
+
+  const selectDisplay = props.selectDisplay;
 
   const handleChange = (event) => {
-    setOption({ value: event.target.value });
+    // setOption({ value: event.target.value });
+    selectDisplay(event.target.value);
   };
+
+  const option = props.display;
+
+  const getSelectedMovies = () => {
+    switch (props.display) {
+      case "Upcoming":
+        return props.upcoming;
+      case "Top Rated":
+        return props.toprated;
+      default:
+        return props.popular;
+    }
+  };
+
+  console.log(props);
 
   return (
     <div className="MovieListWrapper">
@@ -30,9 +50,18 @@ const MovieList = () => {
         </div>
       </div>
 
-      <MovieCard />
+      <MovieCard getMovies={getSelectedMovies} />
     </div>
   );
 };
 
-export default MovieList;
+const mapStateToProps = (state) => {
+  return {
+    popular: state.popular,
+    toprated: state.toprated,
+    upcoming: state.upcoming,
+    display: state.display,
+  };
+};
+
+export default connect(mapStateToProps, { selectDisplay })(MovieList);

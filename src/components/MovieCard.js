@@ -1,24 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../styles/MovieCard.scss";
-import Harrypotter from "../images/Harrypotter.png";
-import { fetchPopular } from "../actions";
-
-import { connect } from "react-redux";
 
 const MovieCard = (props) => {
   const [hovered, setHovered] = useState(false);
   const toggleHover = () => setHovered(!hovered);
 
-  const fetchPopular = props.fetchPopular;
-
-  console.log(props);
-
-  useEffect(() => {
-    fetchPopular();
-  }, [fetchPopular]);
-
   const renderList = () => {
-    return props.popular.map((pop) => {
+    return props.getMovies().map((pop) => {
       return (
         <div className="card">
           <div className="BannerImg" onMouseEnter={toggleHover}>
@@ -51,8 +39,4 @@ const MovieCard = (props) => {
   return <div className="MovieCardWrapper"> {renderList()} </div>;
 };
 
-const mapStateToProps = (state) => {
-  return { popular: state.popular };
-}; //Incorrect?
-
-export default connect(mapStateToProps, { fetchPopular })(MovieCard); //Correct
+export default MovieCard;
