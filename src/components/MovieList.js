@@ -27,8 +27,6 @@ const MovieList = (props) => {
     }
   };
 
-  console.log(props);
-
   return (
     <div className="MovieListWrapper">
       <div className="MovieListHeader">

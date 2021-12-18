@@ -16,7 +16,6 @@ function App(props) {
     fetchTopRated();
     fetchUpcoming();
   }, []);
-  console.log(props);
   return (
     <div className="App">
       <Routes>

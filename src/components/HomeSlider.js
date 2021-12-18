@@ -43,7 +43,7 @@ const HomeSlider = (props) => {
           showThumbs={false}
           showStatus={false}
           autoPlay={1000}
-          interval={2000}
+          interval={5000}
           infiniteLoop={true}
           showArrows={false}
           useKeyboardArrows={true}

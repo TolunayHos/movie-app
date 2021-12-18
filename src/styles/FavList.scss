@@ -1,11 +1,27 @@
 @import "./base/variables.scss";
 
-.FavList {
-  color: white;
+.FavListWrapper {
   min-height: calc(95vh - 5rem);
-  font-size: $medium-font-size;
-  background-color: $dark-grey;
-  h3 {
+  background-color: $light-grey;
+  .NoMovies {
+    color: white;
     margin-left: 1rem;
+    span {
+      color: orange;
+    }
+  }
+  .FavList {
+    h3 {
+      color: white;
+      margin-left: 1rem;
+      font-size: $medium-font-size;
+    }
+  }
+  .NumMovies {
+    color: white;
+    margin-left: 1rem;
+    display: block;
+    text-align: center;
+    padding-bottom: 2rem;
   }
 }

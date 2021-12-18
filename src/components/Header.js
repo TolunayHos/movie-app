@@ -1,7 +1,7 @@
 import React from "react";
 import * as Unicons from "@iconscout/react-unicons";
 import "../styles/Header.scss";
-import movies from "../images/movies.png";
+import movies from "../images/movieapplogo.png";
 import { Link } from "react-router-dom";
 
 const Header = () => {

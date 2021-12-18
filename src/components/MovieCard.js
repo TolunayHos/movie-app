@@ -1,22 +1,35 @@
 import React, { useState } from "react";
 import "../styles/MovieCard.scss";
+import { addFavoriteMovie, removeFavoriteMovie } from "../actions";
+import { connect } from "react-redux";
 
 const MovieCard = (props) => {
   const [hovered, setHovered] = useState(false);
   const toggleHover = () => setHovered(!hovered);
 
+  const addFavoriteMovie = props.addFavoriteMovie;
+  const removeFavoriteMovie = props.removeFavoriteMovie;
+
+  const handleChange = (event) => {
+    const movie = JSON.parse(event.target.value);
+
+    props.favorites.some((e) => e.id === movie.id)
+      ? removeFavoriteMovie(movie)
+      : addFavoriteMovie(movie);
+  };
+
   const renderList = () => {
-    return props.getMovies().map((pop) => {
+    return props.getMovies().map((movie) => {
       return (
         <div className="card">
           <div className="BannerImg" onMouseEnter={toggleHover}>
             <img
-              src={`https://image.tmdb.org/t/p/original/${pop.poster_path}`}
+              src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
             />
-            <h3>{pop?.vote_average}</h3>
+            <h3>{movie?.vote_average}</h3>
           </div>
 
-          <h4>{pop?.title}</h4>
+          <h4>{movie?.title}</h4>
 
           <div
             className={hovered ? "HoverCardActive" : "HoverCardInactive"}
@@ -25,11 +38,15 @@ const MovieCard = (props) => {
             <p>
               {" "}
               Release Date <br />
-              {pop?.release_date}
+              {movie?.release_date}
             </p>
-            <p>{pop?.overview.substring(0, 190)}...</p>
+            <p>{movie?.overview?.substring(0, 190)}...</p>
             <button>More info</button>
-            <button>Add to favorites</button>
+            <button value={JSON.stringify(movie)} onClick={handleChange}>
+              {props.favorites.some((e) => e.id === movie.id)
+                ? "Remove from favorites"
+                : "Add to favorites"}
+            </button>
           </div>
         </div>
       );
@@ -39,4 +56,13 @@ const MovieCard = (props) => {
   return <div className="MovieCardWrapper"> {renderList()} </div>;
 };
 
-export default MovieCard;
+const mapStateToProps = (state) => {
+  return {
+    favorites: state.favorites,
+  };
+};
+
+export default connect(mapStateToProps, {
+  addFavoriteMovie,
+  removeFavoriteMovie,
+})(MovieCard);

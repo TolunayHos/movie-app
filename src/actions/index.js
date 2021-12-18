@@ -2,7 +2,6 @@ import tmdb from "../apis/tmdb";
 
 export const fetchPopular = () => async (dispatch) => {
   const response = await tmdb.get("./movie/popular", { params: { page: 2 } });
-  console.log(response);
   dispatch({ type: "FETCH_POPULAR", payload: response.data.results });
 };
 
@@ -22,5 +21,19 @@ export const selectDisplay = (option) => {
   return {
     type: "SELECT_DISPLAY",
     payload: option,
+  };
+};
+
+export const addFavoriteMovie = (movie) => {
+  return {
+    type: "ADD_FAVORITE_MOVIE",
+    payload: movie,
+  };
+};
+
+export const removeFavoriteMovie = (movie) => {
+  return {
+    type: "REMOVE_FAVORITE_MOVIE",
+    payload: movie,
   };
 };
