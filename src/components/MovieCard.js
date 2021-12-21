@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import "../styles/MovieCard.scss";
-import { addFavoriteMovie, removeFavoriteMovie } from "../actions";
+import {
+  addFavoriteMovie,
+  removeFavoriteMovie,
+  fetchSelectedMovieDetails,
+} from "../actions";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 const MovieCard = (props) => {
   const [hovered, setHovered] = useState(false);
@@ -9,6 +14,7 @@ const MovieCard = (props) => {
 
   const addFavoriteMovie = props.addFavoriteMovie;
   const removeFavoriteMovie = props.removeFavoriteMovie;
+  // const fetchSelectedMovieDetails = props.fetchSelectedMovieDetails;
 
   const handleChange = (event) => {
     const movie = JSON.parse(event.target.value);
@@ -17,6 +23,12 @@ const MovieCard = (props) => {
       ? removeFavoriteMovie(movie)
       : addFavoriteMovie(movie);
   };
+
+  const handleClick = (event) => {
+    console.log(event.target.value);
+  };
+
+  console.log(props);
 
   const renderList = () => {
     return props.getMovies().map((movie) => {
@@ -41,9 +53,16 @@ const MovieCard = (props) => {
               {movie?.release_date}
             </p>
             <p>{movie?.overview?.substring(0, 190)}...</p>
-            <button>More info</button>
+            <Link
+              to={`movie/${movie.id}`}
+              style={{ color: "inherit", textDecoration: "none" }}
+            >
+              <button value={movie?.id} onClick={handleClick}>
+                More info
+              </button>
+            </Link>
             <button value={JSON.stringify(movie)} onClick={handleChange}>
-              {props.favorites.some((e) => e.id === movie.id)
+              {props.favorites.some((e) => e.id === movie?.id)
                 ? "Remove from favorites"
                 : "Add to favorites"}
             </button>
@@ -59,10 +78,12 @@ const MovieCard = (props) => {
 const mapStateToProps = (state) => {
   return {
     favorites: state.favorites,
+    selectedMovieDetails: state.selectedMovieDetails,
   };
 };
 
 export default connect(mapStateToProps, {
   addFavoriteMovie,
   removeFavoriteMovie,
+  // fetchSelectedMovieDetails,
 })(MovieCard);

@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Favorites from "./pages/Favorites";
 import { fetchPopular, fetchTopRated, fetchUpcoming } from "./actions";
 import { connect } from "react-redux";
+import SingleMovie from "./pages/SingleMovie";
 
 function App(props) {
   const fetchPopular = props.fetchPopular;
@@ -21,6 +22,7 @@ function App(props) {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="favorites" element={<Favorites />} />
+        <Route path="movie/:id" element={<SingleMovie />} />
       </Routes>
     </div>
   );

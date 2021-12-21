@@ -1,0 +1,77 @@
+@import "./base/variables.scss";
+
+.DetailsWrapper {
+  min-height: $min-height;
+  background-color: $light-grey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  .DetailsContainer {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 94%;
+    min-height: 80vh;
+    background-color: $dark-grey;
+    border-radius: 10px;
+    .MovieMain {
+      h2,
+      h3 {
+        color: #00c4ff;
+      }
+
+      padding-left: 3rem;
+      padding-top: 2rem;
+      display: flex;
+      img {
+        height: 30rem;
+        border-radius: 12px;
+      }
+    }
+    .MainDetails {
+      margin-left: 8%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      .MainDetailsHeader {
+        h2 {
+          margin-bottom: -0.8rem;
+          color: white;
+        }
+        .MiniDetails {
+          display: flex;
+          p:last-child {
+            margin-left: 1rem;
+          }
+        }
+      }
+      .Overview {
+        width: 70%;
+      }
+    }
+    .Otherinfo {
+      display: flex;
+      justify-content: space-between;
+      .cover {
+        display: flex;
+        flex-direction: column;
+      }
+      .cover:first-child {
+        margin-right: 5rem;
+      }
+      .cover:last-child {
+        margin-right: 8rem;
+      }
+    }
+    .CastDetails {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      h2 {
+        color: #00c4ff;
+      }
+    }
+  }
+}

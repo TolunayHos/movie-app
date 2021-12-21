@@ -17,6 +17,18 @@ export const fetchUpcoming = () => async (dispatch) => {
   dispatch({ type: "FETCH_UPCOMING", payload: response.data.results });
 };
 
+export const fetchSelectedMovieDetails = (movieid) => async (dispatch) => {
+  const response = await tmdb.get(`./movie/${movieid}`);
+
+  dispatch({ type: "FETCH_DETAILS", payload: response.data });
+};
+
+export const fetchSelectedMovieCredits = (movieid) => async (dispatch) => {
+  const response = await tmdb.get(`./movie/${movieid}/credits`);
+
+  dispatch({ type: "FETCH_CREDITS", payload: response.data });
+};
+
 export const selectDisplay = (option) => {
   return {
     type: "SELECT_DISPLAY",

@@ -1,0 +1,24 @@
+.CastMain {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 3rem;
+  width: 60%;
+  .CastMembers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-left: 3rem;
+
+    img {
+      height: 4rem;
+      border-radius: 700px;
+      width: 4rem;
+      object-fit: cover;
+      align-self: center;
+    }
+    p {
+      font-size: 0.7rem;
+    }
+  }
+}
