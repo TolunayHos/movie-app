@@ -64,12 +64,10 @@ const MovieDetails = (props) => {
                     <div>
                       <h3>ScreeenPlay</h3>
                       <p>
-                        {props.selectedMovieCredits.crew.length > 0
-                          ? props.selectedMovieCredits?.crew
-                              .filter((member) => member.job === "Screenplay")
-                              .map((s) => s.name)
-                              .join(", ")
-                          : "unknown"}
+                        {props.selectedMovieCredits?.crew
+                          .filter((member) => member.job === "Screenplay")
+                          .map((s) => s.name)
+                          .join(", ")}
                       </p>
                     </div>
                   </div>
