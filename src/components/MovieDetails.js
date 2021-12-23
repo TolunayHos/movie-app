@@ -45,12 +45,10 @@ const MovieDetails = (props) => {
                     <div>
                       <h3>Director</h3>
                       <p>
-                        {props.selectedMovieCredits.crew.length > 0
-                          ? props.selectedMovieCredits?.crew
-                              .filter((member) => member.job === "Director")
-                              .map((d) => d.name)
-                              .join(" ,")
-                          : "unknown"}
+                        {props.selectedMovieCredits?.crew
+                          .filter((member) => member.job === "Director")
+                          .map((d) => d.name)
+                          .join(" ,")}
                       </p>
                     </div>
                   </div>
