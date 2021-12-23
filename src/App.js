@@ -6,6 +6,8 @@ import Favorites from "./pages/Favorites";
 import { fetchPopular, fetchTopRated, fetchUpcoming } from "./actions";
 import { connect } from "react-redux";
 import SingleMovie from "./pages/SingleMovie";
+import SearchPage from "./pages/SearchPage";
+import About from "./pages/About";
 
 function App(props) {
   const fetchPopular = props.fetchPopular;
@@ -23,6 +25,8 @@ function App(props) {
         <Route path="/" element={<HomePage />} />
         <Route path="favorites" element={<Favorites />} />
         <Route path="movie/:id" element={<SingleMovie />} />
+        <Route path="search" element={<SearchPage />} />
+        <Route path="about" element={<About />} />
       </Routes>
     </div>
   );

@@ -7,6 +7,7 @@ import {
 } from "../actions";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { imgRender } from "./Helper";
 
 const MovieCard = (props) => {
   const [hovered, setHovered] = useState(false);
@@ -24,10 +25,6 @@ const MovieCard = (props) => {
       : addFavoriteMovie(movie);
   };
 
-  const handleClick = (event) => {
-    console.log(event.target.value);
-  };
-
   console.log(props);
 
   const renderList = () => {
@@ -35,9 +32,7 @@ const MovieCard = (props) => {
       return (
         <div className="card">
           <div className="BannerImg" onMouseEnter={toggleHover}>
-            <img
-              src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
-            />
+            <img src={imgRender(movie.poster_path)} />
             <h3>{movie?.vote_average}</h3>
           </div>
 
@@ -54,12 +49,10 @@ const MovieCard = (props) => {
             </p>
             <p>{movie?.overview?.substring(0, 190)}...</p>
             <Link
-              to={`movie/${movie.id}`}
+              to={`/movie/${movie.id}`}
               style={{ color: "inherit", textDecoration: "none" }}
             >
-              <button value={movie?.id} onClick={handleClick}>
-                More info
-              </button>
+              <button value={movie?.id}>More info</button>
             </Link>
             <button value={JSON.stringify(movie)} onClick={handleChange}>
               {props.favorites.some((e) => e.id === movie?.id)

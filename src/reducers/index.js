@@ -6,6 +6,7 @@ import displayReducer from "./displayReducer";
 import favoritesReducer from "./favoritesReducer";
 import detailsReducer from "./detailsReducer";
 import creditsReducer from "./creditsReducer";
+import searchReducer from "./searchReducer";
 
 export default combineReducers({
   popular: popularReducer,
@@ -15,4 +16,5 @@ export default combineReducers({
   favorites: favoritesReducer,
   selectedMovieDetails: detailsReducer,
   selectedMovieCredits: creditsReducer,
+  searchResults: searchReducer,
 });

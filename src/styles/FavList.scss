@@ -1,7 +1,7 @@
 @import "./base/variables.scss";
 
 .FavListWrapper {
-  min-height: calc(95vh - 5rem);
+  min-height: $min-height;
   background-color: $light-grey;
   .NoMovies {
     color: white;

@@ -3,6 +3,7 @@ import "../styles/base/variables.scss";
 import chuky from "../images/chuky.jpg";
 import { connect } from "react-redux";
 import Cast from "./Cast";
+import { imgRender } from "./Helper";
 
 const MovieDetails = (props) => {
   const selectedMovieDetails = props.selectedMovieDetails;
@@ -14,7 +15,8 @@ const MovieDetails = (props) => {
           <div className="DetailsContainer">
             <div className="MovieMain">
               <img
-                src={`https://image.tmdb.org/t/p/original/${selectedMovieDetails.poster_path}`}
+                src={imgRender(selectedMovieDetails.poster_path)}
+                style={{ maxWidth: "320px", maxHeight: "480" }}
               />
               <div className="MainDetails">
                 <div className="MainDetailsHeader">
@@ -34,30 +36,42 @@ const MovieDetails = (props) => {
                   <div className="cover">
                     <div>
                       <h3>Genre</h3>
-                      <p>{selectedMovieDetails?.genres[0]?.name}</p>
+                      <p>
+                        {selectedMovieDetails.genres.length > 0
+                          ? selectedMovieDetails?.genres[0]?.name
+                          : "unknown"}
+                      </p>
                     </div>
                     <div>
                       <h3>Director</h3>
                       <p>
-                        {props.selectedMovieCredits?.crew
-                          .filter((member) => member.job === "Director")
-                          .map((d) => d.name)
-                          .join(" ,")}
+                        {props.selectedMovieCredits.crew.length > 0
+                          ? props.selectedMovieCredits?.crew
+                              .filter((member) => member.job === "Director")
+                              .map((d) => d.name)
+                              .join(" ,")
+                          : "unknown"}
                       </p>
                     </div>
                   </div>
                   <div className="cover">
                     <div>
                       <h3>Producer</h3>
-                      <p>{selectedMovieDetails.production_companies[0].name}</p>
+                      <p>
+                        {selectedMovieDetails.production_companies.length > 0
+                          ? selectedMovieDetails.production_companies[0]?.name
+                          : "unknown"}
+                      </p>
                     </div>
                     <div>
                       <h3>ScreeenPlay</h3>
                       <p>
-                        {props.selectedMovieCredits?.crew
-                          .filter((member) => member.job === "Screenplay")
-                          .map((s) => s.name)
-                          .join(", ")}
+                        {props.selectedMovieCredits.crew.length > 0
+                          ? props.selectedMovieCredits?.crew
+                              .filter((member) => member.job === "Screenplay")
+                              .map((s) => s.name)
+                              .join(", ")
+                          : "unknown"}
                       </p>
                     </div>
                   </div>

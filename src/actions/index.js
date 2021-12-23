@@ -29,6 +29,14 @@ export const fetchSelectedMovieCredits = (movieid) => async (dispatch) => {
   dispatch({ type: "FETCH_CREDITS", payload: response.data });
 };
 
+export const fetchSearchResults = (queryInput) => async (dispatch) => {
+  const response = await tmdb.get(`./search/movie`, {
+    params: { query: queryInput },
+  });
+
+  dispatch({ type: "FETCH_SEARCH_RESULTS", payload: response.data.results });
+};
+
 export const selectDisplay = (option) => {
   return {
     type: "SELECT_DISPLAY",

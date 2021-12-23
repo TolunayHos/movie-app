@@ -2,38 +2,46 @@ import React from "react";
 import * as Unicons from "@iconscout/react-unicons";
 import "../styles/Header.scss";
 import movies from "../images/movieapplogo.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
     <div className="wrapper">
       <div>
-        <img src={movies} alt="logo" height="27px" />
+        <Link to="/">
+          <img src={movies} alt="logo" height="27px" />
+        </Link>
       </div>
       <div className="selectionArea">
         <nav>
           <ul>
             <li>
-              {" "}
-              <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
-                {" "}
-                Home{" "}
-              </Link>
+              <NavLink to="/" className="link">
+                <div>Home</div>
+              </NavLink>
             </li>
-            <li>About</li>
 
             <li>
-              {" "}
-              <Link
+              <NavLink to="/about" className="link">
+                About
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
                 to="/favorites"
-                style={{ color: "inherit", textDecoration: "none" }}
+                className="link"
+                activeClassName="LinkActive"
               >
-                Favorites{" "}
-              </Link>{" "}
+                <div>Favorites</div>
+              </NavLink>
             </li>
             <li>
-              {" "}
-              <Unicons.UilSearch height="20px" />
+              <NavLink to="/search" className="link">
+                <div>
+                  <Unicons.UilSearch height="20px" />
+                </div>
+              </NavLink>
             </li>
           </ul>
         </nav>
