@@ -1,4 +1,5 @@
 @import "./base/variables.scss";
+@import "./base/mixins.scss";
 
 .DetailsWrapper {
   min-height: $min-height;
@@ -7,6 +8,7 @@
   justify-content: center;
   align-items: center;
   color: white;
+
   .DetailsContainer {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -23,6 +25,10 @@
       padding-left: 3rem;
       padding-top: 2rem;
       display: flex;
+      @include for-phone-only {
+        flex-direction: column;
+        padding-left: 1rem;
+      }
       img {
         height: 30rem;
         border-radius: 12px;

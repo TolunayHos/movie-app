@@ -1,8 +1,10 @@
 @import "./base/variables.scss";
+@import "./base/mixins.scss";
 
 .AboutWrapper {
   min-height: $min-height;
   background-color: $light-grey;
+
   height: 100%;
   display: flex;
   flex-direction: column;

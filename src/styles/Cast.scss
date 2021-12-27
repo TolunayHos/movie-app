@@ -1,8 +1,13 @@
+@import "./base/mixins.scss";
+
 .CastMain {
   margin-top: 2rem;
   margin-bottom: 2rem;
   margin-left: 3rem;
   width: 60%;
+  @include for-phone-only {
+    width: 90%;
+  }
   .CastMembers {
     display: flex;
     flex-direction: column;

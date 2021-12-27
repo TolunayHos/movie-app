@@ -1,6 +1,5 @@
 import "../styles/MovieDetails.scss";
 import "../styles/base/variables.scss";
-import chuky from "../images/chuky.jpg";
 import { connect } from "react-redux";
 import Cast from "./Cast";
 import { imgRender } from "./Helper";
