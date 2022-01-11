@@ -18,6 +18,9 @@
   img {
     margin-left: 2rem;
     line-height: $site-line-height;
+    @include for-phone-only {
+      display: none;
+    }
   }
 
   .selectionArea {
@@ -27,6 +30,7 @@
       justify-content: space-evenly;
       list-style: none;
       margin-bottom: 0.7rem;
+
       li {
         margin-right: 1rem;
 

@@ -40,8 +40,8 @@ const HomeSlider = (props) => {
         <Carousel
           showThumbs={false}
           showStatus={false}
-          autoPlay={1000}
-          interval={5000}
+          autoPlay={true}
+          interval={3000}
           infiniteLoop={true}
           showArrows={false}
           useKeyboardArrows={true}
