@@ -3,6 +3,7 @@ import "../styles/base/variables.scss";
 import { connect } from "react-redux";
 import Cast from "./Cast";
 import { imgRender } from "./Helper";
+import { Grid } from "react-loader-spinner";
 
 const MovieDetails = (props) => {
   const selectedMovieDetails = props.selectedMovieDetails;
@@ -81,8 +82,19 @@ const MovieDetails = (props) => {
         </div>
       );
     } else {
-      console.log("Loading...");
-      return;
+      return (
+        <div className="DetailsWrapper">
+          <div className="DetailsContainer">
+            <div className="SpinnerArea">
+              <Grid
+                arialLabel="loading-indicator"
+                color="orange"
+                className="grid"
+              />
+            </div>
+          </div>
+        </div>
+      );
     }
   };
 

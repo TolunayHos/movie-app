@@ -19,6 +19,7 @@ function App(props) {
     fetchTopRated();
     fetchUpcoming();
   }, []);
+
   return (
     <div className="App">
       <Routes>
@@ -28,6 +29,7 @@ function App(props) {
         <Route path="search" element={<SearchPage />} />
         <Route path="about" element={<About />} />
       </Routes>
+      )
     </div>
   );
 }
