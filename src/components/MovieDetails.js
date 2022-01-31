@@ -4,9 +4,14 @@ import { connect } from "react-redux";
 import Cast from "./Cast";
 import { imgRender } from "./Helper";
 import { Grid } from "react-loader-spinner";
+import { useEffect } from "react";
 
 const MovieDetails = (props) => {
   const selectedMovieDetails = props.selectedMovieDetails;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const conditionalRender = () => {
     if (selectedMovieDetails) {
