@@ -3,7 +3,7 @@ import "../styles/HomeSlider.scss";
 import { connect } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { Grid } from "react-loader-spinner";
 
 const HomeSlider = (props) => {
