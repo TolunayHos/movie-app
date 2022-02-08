@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { useEffect } from "react";
 import HomePage from "./pages/HomePage";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Favorites from "./pages/Favorites";
 import { fetchPopular, fetchTopRated, fetchUpcoming } from "./actions";
 import { connect } from "react-redux";
@@ -23,11 +23,12 @@ function App(props) {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route exact path="/" element={<HomePage />} />
         <Route path="favorites" element={<Favorites />} />
         <Route path="movie/:id" element={<SingleMovie />} />
         <Route path="search" element={<SearchPage />} />
         <Route path="about" element={<About />} />
+        <Route from="*" to="/" />
       </Routes>
       )
     </div>
