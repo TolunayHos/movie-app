@@ -27,15 +27,14 @@ const MovieList = (props) => {
     }
   };
 
+  console.log(option);
+
   return (
     <div className="MovieListWrapper">
       <div className="MovieListHeader">
         <h2>
           {" "}
-          <span>
-            {option.value === `${option.value}` ? `${option.value}` : "Popular"}
-          </span>{" "}
-          movies
+          <span>{option === `${option}` ? `${option}` : "Popular"}</span> movies
         </h2>
 
         <div className="selectionArea">
